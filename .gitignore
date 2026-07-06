@@ -1,3 +1,6 @@
-out/
-*.class
-
+﻿out/
+**/*.class
+target/
+bin/
+.idea/
+*.iml
