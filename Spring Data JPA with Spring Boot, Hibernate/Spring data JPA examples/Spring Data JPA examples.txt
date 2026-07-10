@@ -1,0 +1,38 @@
+Spring Data JPA Examples
+
+1. Example: Save a student record
+- Create an entity class Student.
+- Create a repository interface StudentRepository extends JpaRepository<Student, Long>.
+- Use save() to insert data into the database.
+
+2. Example: Find all students
+- Use findAll() method from JpaRepository.
+- It returns all records from the table.
+
+3. Example: Find student by id
+- Use findById(id) method.
+- It returns a student based on the primary key.
+
+4. Example: Delete a student
+- Use deleteById(id) to remove a record.
+
+5. Example: Custom query
+- You can create methods like findByName(), findByEmail(), or findByAgeGreaterThan(int age).
+- Spring Data JPA automatically generates SQL queries from method names.
+
+Example repository code:
+```java
+public interface StudentRepository extends JpaRepository<Student, Long> {
+    List<Student> findByName(String name);
+}
+```
+
+Example service usage:
+```java
+studentRepository.save(student);
+studentRepository.findAll();
+studentRepository.findById(1L);
+studentRepository.deleteById(1L);
+```
+
+These examples show how Spring Data JPA simplifies database operations in Spring Boot applications.
